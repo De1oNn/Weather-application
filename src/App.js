@@ -40,7 +40,7 @@ function App() {
             <img src={home} className="h-[32px] w-[32px]"/>
             <img src={location} className="h-[32px] w-[32px]"/>
             <img src={love} className="h-[32px] w-[32px]"/>
-            <img src={user} className="h-[32px] w-[32px]"/>
+            <img src={user} className="h-[32px] w-[32px]" />
           </div>
         </div>
       </div>
