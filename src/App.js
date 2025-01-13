@@ -8,11 +8,17 @@ import location from './pic/location-icon.png'
 import love from './pic/love-icon.png'
 import user from './pic/user-icon.png'
 import search from './pic/search.png'
+import { useEffect, useState } from 'react';
 
 function App() {
-  
 
+  const [countriesSearch, setcountriesSearch] = useState("");
+  const [inputValue, setInputValue] = useState('');
 
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    setInputValue(event.target.value);
+  };
 
   return (
     <div className="flex w-screen h-screen relative justify-center items-center bg-[#F3F4F6]">
@@ -33,8 +39,8 @@ function App() {
       
       
       <div className="bg-custom-white w-1/2 h-screen left-0 absolute flex justify-center items-center">
-        <img src={search} className='h-[48px] w-[48px] absolute top-[58px] left-[180px] z-30'></img>
-        <input className="h-[80px] w-[567px] bg-[#FFFFFF] absolute top-10 left-40 rounded-[48px] pt-[16px] pr-[24px] pb-[16px] pl-[80px] text-[32px] font-semibold z-20" placeholder='Search'></input>
+        <img src={search} alt='' className='h-[48px] w-[48px] absolute top-[58px] left-[180px] z-30'></img>
+        <input value={inputValue} onChange={handleChange} className="h-[80px] w-[567px] bg-[#FFFFFF] absolute top-10 left-40 rounded-[48px] pt-[16px] pr-[24px] pb-[16px] pl-[80px] text-[32px] font-semibold z-20" placeholder='Search'></input>
         <div className="h-[828px] w-[414px] bg-[#FFFFFF] z-20 rounded-[48px] flex flex-col items-center backdrop-blur-md backdrop-opacity-20">
           <div className='flex justify-center items-center flex-col py-[56px] px-[40px]'>
             <div className='flex h-[80px] w-[334px] justify-between'>
