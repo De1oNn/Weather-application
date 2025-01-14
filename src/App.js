@@ -3,10 +3,7 @@ import sun from './pic/icon.png';
 import moon from './pic/moon.png';
 import logoleft from './pic/logo-left.png';
 import logoright from './pic/logo-right.png'
-import home from './pic/home-icon.png'
 import location from './pic/location-icon.png'
-import love from './pic/love-icon.png'
-import user from './pic/user-icon.png'
 import search from './pic/search.png'
 import { useEffect, useState } from 'react';
 import { citiesfilter } from "./utils/Citiesfilter";
@@ -41,9 +38,11 @@ function App() {
       );
   }
 
-  useEffect(() => { 
-    filterData();
-  }, [countriesSearch])
+  useEffect(() => {
+    if (cities.length > 0) {  // Ensure cities data is available before filtering
+      filterData();
+    }
+  }, [countriesSearch]);
 
   useEffect(()=> {
     console.log("useEffect fetch data worked");
@@ -76,15 +75,15 @@ function App() {
       
       
       <div className="bg-custom-white w-1/2 h-screen left-0 absolute flex justify-center items-center">
-        <img src={search} alt='' className='h-[48px] w-[48px] absolute top-[58px] left-[180px] z-30'></img>
-        <input onChange={handleChange} className="h-[80px] w-[567px] bg-[#FFFFFF] absolute top-10 left-40 rounded-[48px] pt-[16px] pr-[24px] pb-[16px] pl-[80px] text-[32px] font-semibold z-20" placeholder='Search'></input>
-        <div className='z-40'>
+        <img src={search} alt='' className='h-[48px] w-[48px] absolute top-[58px] left-[77%] z-30'></img>
+        <input onChange={handleChange} className="h-[80px] w-[567px] bg-[#FFFFFF] absolute top-[40px] left-[75%] rounded-[48px] pt-[16px] pr-[24px] pb-[16px] pl-[80px] text-[32px] font-semibold z-20" placeholder='Search'></input>
+        <div className='absolute top-[12%] left-[75%] z-30 bg-[#FFFFFF] w-[567px] flex flex-col rounded-[28px] backdrop-blur-md shadow-2xl'>
           {countriesSearch.length > 0 &&
            filteredData.map((country, index) => {
-            return <div key={index}>{country}</div>
+            return <div key={index} className='text-[24px] h-[56px] w-[567px] z-30 flex justify-start items-center top-[10%] bg-[#FFFFFF] backdrop-blur-md rounded-[15px] '><img src={location} alt='' className='z-40 h-[32px] w-[32px] ml-[25px] mr-[20px] opacity-40'/>  {country}</div>
           })}
         </div>
-        <div className="h-[828px] w-[414px] bg-[#FFFFFF] z-20 rounded-[48px] flex flex-col items-center backdrop-blur-md backdrop-opacity-20">
+        <div className="h-[828px] w-[414px] bg-[#FFFFFF30] z-20 rounded-[48px] flex flex-col items-center backdrop-blur-md shadow-2xl">
           <div className='flex justify-center items-center flex-col py-[56px] px-[40px]'>
             <div className='flex h-[80px] w-[334px] justify-between'>
               <div>
@@ -92,7 +91,7 @@ function App() {
                 <p className='text-[48px] text-[#111827] font-extrabold'>Ulaanbaatar</p>
               </div>
               <div className='flex justify-center items-center'>
-                <img src={location} alt='' className="h-[32px] w-[32px]"/>
+                <img src={location} alt='' className="h-[32px] w-[32px] top-[100px]"/>
               </div>
             </div>
             <img src={sun} alt='' className="h-[274px] w-[274px] mt-[48px]"/>
@@ -104,17 +103,12 @@ function App() {
             <div className="h-[24px] w-[318px] mb-[48px]">
               <p>Light snow</p>
             </div>
-            <div className="flex h-[32px] w-[318px] justify-between">
-              <img src={home} alt='' className="h-[32px] w-[32px]"/>
-              <img src={location} alt='' className="h-[32px] w-[32px] opacity-40"/>
-              <img src={love} alt='' className="h-[32px] w-[32px] opacity-40"/>
-              <img src={user} alt='' className="h-[32px] w-[32px] opacity-40"/>
-            </div>
+
           </div>
         </div>
       </div>
       <div className="bg-custom-dark w-1/2 h-screen right-0 absolute flex justify-center items-center rounded-bl-[48px]">
-        <div className="h-[828px] w-[414px] bg-[#111827] z-20 rounded-[48px] flex flex-col items-center backdrop-blur-md backdrop-opacity-20">
+        <div className="h-[828px] w-[414px] bg-[#11182733] z-20 rounded-[48px] flex flex-col items-center backdrop-blur-md shadow-2xl">
           <div className='flex justify-center items-center flex-col py-[56px] px-[40px]'>
             <div className='flex h-[80px] w-[334px] justify-between'>
               <div>
@@ -133,12 +127,6 @@ function App() {
             </div>
             <div className="h-[24px] w-[318px] mb-[48px]">
               <p className='text-[#777CCE]'>Light snow</p>
-            </div>
-            <div className="flex h-[32px] w-[318px] justify-between">
-              <img src={home} alt='' className="h-[32px] w-[32px]"/>
-              <img src={location} alt='' className="h-[32px] w-[32px] opacity-40"/>
-              <img src={love} alt='' className="h-[32px] w-[32px] opacity-40"/>
-              <img src={user} alt='' className="h-[32px] w-[32px] opacity-40"/>
             </div>
           </div>
         </div>
