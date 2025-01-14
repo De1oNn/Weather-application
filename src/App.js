@@ -9,19 +9,21 @@ import love from './pic/love-icon.png'
 import user from './pic/user-icon.png'
 import search from './pic/search.png'
 import { useEffect, useState } from 'react';
-
+import { citiesfilter } from "./utils/Citiesfilter";
+ 
 function App() {
 
   const [countriesSearch, setcountriesSearch] = useState("");
-  const [countriesData, setCountriesData] = useState([])
   const [filteredData, setFilteredData] = useState([])
+  const [cities, setCities] = useState([]);
 
   const fetchData = () => {
     fetch("https://countriesnow.space/api/v0.1/countries")
       .then((response) => response.json())
       .then((result) => {
-        setCountriesData(result.data)
-        setFilteredData(result.data);
+        const countriesAndCity = citiesfilter(setCities, result.data);
+        setCities(countriesAndCity);
+        setFilteredData(countriesAndCity);
       })
       .catch((error) => {
         console.log("error", error);
@@ -31,8 +33,12 @@ function App() {
 
   const filterData = () => {
     setFilteredData(
-      countriesData.filter((item)=> item.country === countriesSearch)
-    );
+      cities
+        .filter((city) => 
+          city.toLowerCase().startsWith(countriesSearch.toLowerCase())
+      )
+      .slice(0, 5)
+      );
   }
 
   useEffect(() => { 
@@ -46,6 +52,8 @@ function App() {
   }, [])
 
   const handleChange = (event) => {
+    console.log(event.target.value);
+    
     setcountriesSearch(event.target.value)
   };
 
@@ -71,8 +79,9 @@ function App() {
         <img src={search} alt='' className='h-[48px] w-[48px] absolute top-[58px] left-[180px] z-30'></img>
         <input onChange={handleChange} className="h-[80px] w-[567px] bg-[#FFFFFF] absolute top-10 left-40 rounded-[48px] pt-[16px] pr-[24px] pb-[16px] pl-[80px] text-[32px] font-semibold z-20" placeholder='Search'></input>
         <div className='z-40'>
-          {filteredData.map((country, index) => {
-            return <div key={index}>{country.country}</div>
+          {countriesSearch.length > 0 &&
+           filteredData.map((country, index) => {
+            return <div key={index}>{country}</div>
           })}
         </div>
         <div className="h-[828px] w-[414px] bg-[#FFFFFF] z-20 rounded-[48px] flex flex-col items-center backdrop-blur-md backdrop-opacity-20">
