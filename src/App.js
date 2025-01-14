@@ -76,7 +76,7 @@ function App() {
       
       <div className="bg-custom-white w-1/2 h-screen left-0 absolute flex justify-center items-center">
         <img src={search} alt='' className='h-[48px] w-[48px] absolute top-[58px] left-[77%] z-30'></img>
-        <input onChange={handleChange} className="h-[80px] w-[567px] bg-[#FFFFFF] absolute top-[40px] left-[75%] rounded-[48px] pt-[16px] pr-[24px] pb-[16px] pl-[80px] text-[32px] font-semibold z-20" placeholder='Search'></input>
+        <input onChange={handleChange} className="h-[80px] w-[500px] bg-[#FFFFFF] absolute top-[40px] left-[74%] rounded-[48px] pt-[16px] pr-[24px] pb-[16px] pl-[80px] text-[32px] font-semibold z-20" placeholder='Search'></input>
         <div className='absolute top-[12%] left-[75%] z-30 bg-[#FFFFFF] w-[567px] flex flex-col rounded-[28px] backdrop-blur-md shadow-2xl'>
           {countriesSearch.length > 0 &&
            filteredData.map((country, index) => {
@@ -101,7 +101,7 @@ function App() {
               <p className='font-extrabold text-[110px]'>-15.4º</p>
             </div>
             <div className="h-[24px] w-[318px] mb-[48px]">
-              <p>Light snow</p>
+              <p className='text-[#FF8E27]'>Light snow</p>
             </div>
 
           </div>
