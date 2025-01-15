@@ -8,6 +8,7 @@ import search from './pic/search.png'
 import { useEffect, useState } from 'react';
 import { citiesfilter } from "./utils/Citiesfilter";
 import { Search } from './components/Search';
+import { useState } from 'react';
 
 function App() {
 
@@ -15,6 +16,33 @@ function App() {
   const [filteredData, setFilteredData] = useState([])
   const [loading, setLoading] = useState(false)
   const [cities, setCities] = useState([]);
+
+  const [selectedCity, setSelectedCity] = useState("Ulaanbaatar")
+  const [weatherLoading, setWeatherLoading] = useState(false)
+
+  const weatherApiKey = "c74333e3d071494c8dd22100251501"
+  
+  const  getWeather = async () => {
+    setWeatherLoading(true);
+  
+  try {
+    const response = await fetch(
+      `https://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${cityName}`, 
+      { method: "get", headers: { "Content-Type": "application/json" }}
+    );
+    const result = await response.json();
+    console.log(result);
+    
+    } catch (error) {
+      console.log("Error", error); 
+    }
+  }
+  
+  useEffect(() => {
+    getWeather();
+  }, [selectedCity]);
+
+
 
 
   const fetchData = async () => {
