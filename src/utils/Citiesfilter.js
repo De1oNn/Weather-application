@@ -1,4 +1,4 @@
-export const citiesfilter = (countries) => {
+export const CitiesFilter = (countries) => {
 
     const citiesAndCountry = countries.flatMap((country) => 
         country.cities.map((city) => `${city} , ${country.country}`)
