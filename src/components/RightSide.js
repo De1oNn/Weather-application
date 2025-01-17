@@ -2,7 +2,6 @@ import React from 'react'
 
 export const RightSide = (props) => {
   const {weather, selectedCity} = props
-  console.log(weather);
   
   return (
     <div className='z-30'>
@@ -23,8 +22,12 @@ export const RightSide = (props) => {
             <div className='h-[165px] w-[318px]'>
               <p className='font-extrabold text-[110px] text-[#F9FAFB]'>{weather.min_c}º</p>
             </div>
-            <div className="h-[24px] w-[318px] mb-[48px]">
-              <p className='text-[#777CCE]'>{weather.condition}</p>
+            <div className="h-[35px] w-[318px] mb-[48px] flex justify-center  items-center ">
+              <p className='text-[#777CCE] text-[30px] outline-dashed rounded-[40px] px-[10px]'>{weather.condition}</p>
+            </div>
+            <div className='flex border-solid border-2 border-sky-500 h-[70px] w-[100px] rounded-[20px] justify-center items-center'>
+              <img src={"./pic/humidity1.png"}  alt='' className='h-[40px] w-[40px]'/>
+              <p className='text-[#0000ff] text-[28px] ml-[10px]'>{weather.humidity}</p>
             </div>
           </div>
         </div>

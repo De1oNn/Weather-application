@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CitiesFilter } from '../utils/CitiesFilter';
+// import { CitiesFilter } from '../utils/CitiesFilter';
 
 export const Search = ({ setSelectedCity }) => {
   const [countriesSearch, setCountriesSearch] = useState("");
@@ -13,6 +13,13 @@ export const Search = ({ setSelectedCity }) => {
       try {
         const response = await fetch("https://countriesnow.space/api/v0.1/countries");
         const result = await response.json();
+        const CitiesFilter = (countries) => {
+          const citiesAndCountry = countries.flatMap((country) => 
+            country.cities.map((city) => `${city} , ${country.country}`)
+        );
+    
+        return citiesAndCountry;
+        }
         const countriesAndCity = CitiesFilter(result.data);
         setCities(countriesAndCity);
         setFilteredData(countriesAndCity);
@@ -22,9 +29,10 @@ export const Search = ({ setSelectedCity }) => {
         setLoading(false);
       }
     };
-
     fetchData();
+    
   }, []);
+
 
   const handleChange = (event) => {
     const searchValue = event.target.value;
@@ -37,13 +45,14 @@ export const Search = ({ setSelectedCity }) => {
   };
 
   const handleCityClick = (city) => {
-    const cityName = city.split(",")[0]; // Assuming the city data format is "city, country"
+    const cityName = city.split(",")[0];
     setSelectedCity(cityName);
-    setCountriesSearch(""); // Optionally reset the search input
+    setCountriesSearch(""); 
   };
 
   return (
-    <div>
+    // h-[530px] w-[530px] backdrop-blur-md shadow-2xl  absolute top-10
+    <div className='z-40 '>
       <img
         src="./pic/search.png"
         alt=""
@@ -56,13 +65,13 @@ export const Search = ({ setSelectedCity }) => {
         className="h-[80px] w-[530px] bg-[#FFFFFF] absolute top-[40px] left-[76%] rounded-[48px] pt-[16px] pr-[24px] pb-[16px] pl-[80px] text-[32px] font-semibold z-20"
         placeholder="Search"
       />
-      <div className="absolute top-[12%] left-[75%] z-30 bg-[#FFFFFF] w-[567px] flex flex-col rounded-[28px] backdrop-blur-md shadow-2xl">
+      <div className="absolute top-[12%] left-[75%] z-30 bg-[#FFFFFF] w-[530px] flex flex-col rounded-[28px] backdrop-blur-md">
         {countriesSearch.length > 0 &&
           filteredData.map((city, index) => (
             <div
               key={index}
               onClick={() => handleCityClick(city)}
-              className="text-[24px] h-[56px] w-[567px] z-30 flex justify-start items-center top-[10%] bg-[#FFFFFF] backdrop-blur-md rounded-[15px] "
+              className="text-[24px] h-[56px] w-[530px] z-30 flex justify-start items-center top-[10%] bg-[#FFFFFF] backdrop-blur-md rounded-[15px]"
             >
               <img
                 src="./pic/location-icon.png"

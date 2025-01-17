@@ -1,6 +1,6 @@
 import './index.css';
 import { useEffect, useState } from 'react';
-import { citiesfilter } from "./utils/CitiesFilter";
+// import { citiesfilter } from "./utils/CitiesFilter";
 import { Search } from './components/Search';
 import { RightSide } from './components/RightSide';
 import { LeftSide } from './components/LeftSide';
@@ -20,29 +20,28 @@ function App() {
         `https://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${selectedCity}`,
         { method: "GET", headers: { "Content-Type": "application/json" } }
       );
+      console.log(response);
       const result = await response.json();
-  
-      // Add cityName to the weather data
+      console.log(result);
       const weatherData = {
         cityName: selectedCity, 
         max_c: result.forecast.forecastday[0].day.maxtemp_c,
+        humidity: result.current.humidity,
         min_c: result.forecast.forecastday[0].day.mintemp_c,
         condition: result.forecast.forecastday[0].day.condition.text,
         date: result.forecast.forecastday[0].date,
       };
-  
-      setWeather(weatherData);  // Update the state with cityName
+      setWeather(weatherData);
     } catch (error) {
       console.error("Error fetching weather data:", error);
     } finally {
       setWeatherLoading(false);
     }
   };
-  
+
   useEffect(() => {
     getWeather();
   }, [selectedCity]);
-
 
   return (
     <div className="flex w-screen h-screen relative justify-center items-center bg-[#F3F4F6]">
@@ -98,7 +97,7 @@ function App() {
         </div> */}
       </div>
       <div className="bg-custom-dark w-1/2 h-screen right-0 absolute flex justify-center items-center rounded-bl-[48px]">
-      <RightSide weather={weather}/>
+      <RightSide weather={weather} />
         {/* <div className="h-[828px] w-[414px] bg-[#11182733] z-20 rounded-[48px] flex flex-col items-center backdrop-blur-md shadow-2xl">
           <div className='flex justify-center items-center flex-col py-[56px] px-[40px]'>
             <div className='flex h-[80px] w-[334px] justify-between'>

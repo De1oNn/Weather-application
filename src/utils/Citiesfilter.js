@@ -1,8 +1,8 @@
-export const CitiesFilter = (countries) => {
+// export const CitiesFilter = (countries) => {
 
-    const citiesAndCountry = countries.flatMap((country) => 
-        country.cities.map((city) => `${city} , ${country.country}`)
-    );
+//     const citiesAndCountry = countries.flatMap((country) => 
+//         country.cities.map((city) => `${city} , ${country.country}`)
+//     );
 
-    return citiesAndCountry;
-};
+//     return citiesAndCountry;
+// };
