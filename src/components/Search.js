@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { CitiesFilter } from '../utils/CitiesFilter';
 
 export const Search = ({ setSelectedCity }) => {
   const [countriesSearch, setCountriesSearch] = useState("");

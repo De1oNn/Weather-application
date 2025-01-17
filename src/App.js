@@ -1,6 +1,5 @@
 import './index.css';
 import { useEffect, useState } from 'react';
-import { citiesfilter } from "./utils/CitiesFilter";
 import { Search } from './components/Search';
 import { RightSide } from './components/RightSide';
 import { LeftSide } from './components/LeftSide';
