@@ -1,8 +1,34 @@
 import React from 'react'
 
 export const RightSide = (props) => {
-  const {weather, selectedCity} = props
+  const {weather, selectedCity, weatherLoading} = props
   
+  const RightCondition = () => {
+    const condition = weather?.condition?.toLowerCase() || 'clear'; 
+
+    if (condition.includes("clouds")) {
+      return './pic/Clouds1.png';
+    }
+    else if (condition.includes('rain')) {
+      return './pic/rain1.png';
+    }
+    else if (condition.includes('sunny')) {
+      return './pic/moon.png';
+    }
+    else if (condition.includes('windy')) {
+      return './pic/Wind1.png';
+    }
+    else if (condition.includes('snow')) {
+      return './pic/Snow1.png';
+    }
+    else {
+      return './pic/Snow1.png'; 
+    }
+  };
+
+  if (weatherLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className='z-30'>
       <div className="h-[828px] w-[414px] bg-[#11182733] z-30 rounded-[48px] flex flex-col items-center backdrop-blur-md shadow-2xl">
@@ -16,7 +42,7 @@ export const RightSide = (props) => {
                 <img src={"./pic/location-icon.png"} alt='' className="h-[32px] w-[32px] text-[#FFFFFF]" />
               </div>
             </div>
-            <img src={"./pic/moon.png"} alt='' className="h-[274px] w-[274px] mt-[48px]" />
+            <img src={RightCondition()} alt='' className="h-[274px] w-[274px] mt-[48px]" />
           </div>
           <div className='h-[269px] w-[414px] px-[48px] flex justify-center items-center flex-col'>
             <div className='h-[165px] w-[318px]'>

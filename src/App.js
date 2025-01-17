@@ -1,6 +1,6 @@
 import './index.css';
 import { useEffect, useState } from 'react';
-// import { citiesfilter } from "./utils/CitiesFilter";
+import { citiesfilter } from "./utils/CitiesFilter";
 import { Search } from './components/Search';
 import { RightSide } from './components/RightSide';
 import { LeftSide } from './components/LeftSide';
@@ -38,6 +38,29 @@ function App() {
       setWeatherLoading(false);
     }
   };
+
+  // console.log("Weather data:", weather);
+
+  // const [imageSrc, setImageSrc] = useState('./pic/icon.png'); 
+  // useEffect(() => {
+  //   if (weather && weather.forecast && weather.forecast.forecastday[0].day.condition) {
+  //     const conditionText = weather.forecast.forecastday[0].day.condition.toLowerCase();
+
+  //     if (conditionText.includes('rain')) {
+  //       setImageSrc('./pic/rain.png');
+  //     } else if (conditionText.includes('sunny')) {
+  //       setImageSrc('./pic/icon.png');
+  //     } else if (conditionText.includes('cloudy')) {
+  //       setImageSrc('./pic/Clouds.png');
+  //     } else if (conditionText.includes('windy')) {
+  //       setImageSrc('./pic/Wind.png');
+  //     } else if (conditionText.includes('snowy')) {
+  //       setImageSrc('./pic/Snow.png');
+  //     } else {
+  //       setImageSrc('./pic/Thunder.png');
+  //     }
+  //   }
+  // }, [weather]);
 
   useEffect(() => {
     getWeather();
