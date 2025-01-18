@@ -38,29 +38,6 @@ function App() {
     }
   };
 
-  // console.log("Weather data:", weather);
-
-  // const [imageSrc, setImageSrc] = useState('./pic/icon.png'); 
-  // useEffect(() => {
-  //   if (weather && weather.forecast && weather.forecast.forecastday[0].day.condition) {
-  //     const conditionText = weather.forecast.forecastday[0].day.condition.toLowerCase();
-
-  //     if (conditionText.includes('rain')) {
-  //       setImageSrc('./pic/rain.png');
-  //     } else if (conditionText.includes('sunny')) {
-  //       setImageSrc('./pic/icon.png');
-  //     } else if (conditionText.includes('cloudy')) {
-  //       setImageSrc('./pic/Clouds.png');
-  //     } else if (conditionText.includes('windy')) {
-  //       setImageSrc('./pic/Wind.png');
-  //     } else if (conditionText.includes('snowy')) {
-  //       setImageSrc('./pic/Snow.png');
-  //     } else {
-  //       setImageSrc('./pic/Thunder.png');
-  //     }
-  //   }
-  // }, [weather]);
-
   useEffect(() => {
     getWeather();
   }, [selectedCity]);
@@ -87,61 +64,9 @@ function App() {
         <Search setSelectedCity={setSelectedCity}/>
         <LeftSide weather={weather}/>
         {weatherLoading && <p></p>}
-        {/* <img src={search} alt='' className='h-[48px] w-[48px] absolute top-[58px] left-[77%] z-30'></img>
-        <input disabled={loading} onChange={handleChange} className="h-[80px] w-[530px] bg-[#FFFFFF] absolute top-[40px] left-[76%] rounded-[48px] pt-[16px] pr-[24px] pb-[16px] pl-[80px] text-[32px] font-semibold z-20" placeholder='Search'></input>
-        <div className='absolute top-[12%] left-[75%] z-30 bg-[#FFFFFF] w-[567px] flex flex-col rounded-[28px] backdrop-blur-md shadow-2xl'>
-          {countriesSearch.length > 0 &&
-            filteredData.map((country, index) => {
-              return <div key={index} className='text-[24px] h-[56px] w-[567px] z-30 flex justify-start items-center top-[10%] bg-[#FFFFFF] backdrop-blur-md rounded-[15px] '><img src={location} alt='' className='z-40 h-[32px] w-[32px] ml-[25px] mr-[20px] opacity-40' />  {country}</div>
-            })}
-        </div> */}
-        {/* <div className="h-[828px] w-[414px] bg-[#FFFFFF30] z-20 rounded-[48px] flex flex-col items-center backdrop-blur-md shadow-2xl">
-          <div className='flex justify-center items-center flex-col py-[56px] px-[40px]'>
-            <div className='flex h-[80px] w-[334px] justify-between'>
-              <div>
-                <p className='text-[#9ca3af]'>January 13, 2025</p>
-                <p className='text-[48px] text-[#111827] font-extrabold'>Ulaanbaatar</p>
-              </div>
-              <div className='flex justify-center items-center'>
-                <img src={"./pic/location-icon.png"} alt='' className="h-[32px] w-[32px] top-[100px]" />
-              </div>
-            </div>
-            <img src={"./pic/icon.png"} alt='' className="h-[274px] w-[274px] mt-[48px]" />
-          </div>
-          <div className='h-[269px] w-[414px] px-[48px] flex justify-center items-center flex-col'>
-            <div className='h-[165px] w-[318px]'>
-              <p className='font-extrabold text-[110px]'>-15.4º</p>
-            </div>
-            <div className="h-[24px] w-[318px] mb-[48px]">
-              <p className='text-[#FF8E27]'>Light snow</p>
-            </div>
-          </div>
-        </div> */}
       </div>
       <div className="bg-custom-dark w-1/2 h-screen right-0 absolute flex justify-center items-center rounded-bl-[48px]">
       <RightSide weather={weather} />
-        {/* <div className="h-[828px] w-[414px] bg-[#11182733] z-20 rounded-[48px] flex flex-col items-center backdrop-blur-md shadow-2xl">
-          <div className='flex justify-center items-center flex-col py-[56px] px-[40px]'>
-            <div className='flex h-[80px] w-[334px] justify-between'>
-              <div>
-                <p className='text-[#9ca3af]'>January 13, 2025</p>
-                <p className='text-[48px] text-[#FFFFFF] font-extrabold'>Ulaanbaatar </p>
-              </div>
-              <div className='flex justify-center items-center'>
-                <img src={"./pic/location-icon.png"} alt='' className="h-[32px] w-[32px] text-[#FFFFFF]" />
-              </div>
-            </div>
-            <img src={"./pic/moon.png"} alt='' className="h-[274px] w-[274px] mt-[48px]" />
-          </div>
-          <div className='h-[269px] w-[414px] px-[48px] flex justify-center items-center flex-col'>
-            <div className='h-[165px] w-[318px]'>
-              <p className='font-extrabold text-[110px] text-[#F9FAFB]'>-15.4º</p>
-            </div>
-            <div className="h-[24px] w-[318px] mb-[48px]">
-              <p className='text-[#777CCE]'>Light snow</p>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );
