@@ -16,7 +16,6 @@ export const Search = ({ setSelectedCity }) => {
           const citiesAndCountry = countries.flatMap((country) => 
             country.cities.map((city) => `${city} , ${country.country}`)
         );
-    
         return citiesAndCountry;
         }
         const countriesAndCity = CitiesFilter(result.data);
@@ -50,7 +49,6 @@ export const Search = ({ setSelectedCity }) => {
   };
 
   return (
-    // h-[530px] w-[530px] backdrop-blur-md shadow-2xl  absolute top-10
     <div className='z-40 '>
       <img
         src="./pic/search.png"
@@ -78,6 +76,7 @@ export const Search = ({ setSelectedCity }) => {
                 className="z-40 h-[32px] w-[32px] ml-[25px] mr-[20px] opacity-40"
               />
               {city}
+              
             </div>
           ))}
       </div>
