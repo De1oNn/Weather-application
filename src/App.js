@@ -43,6 +43,7 @@ function App() {
   }, [selectedCity]);
 
   return (
+    
     <div className="flex w-screen h-screen relative justify-center items-center bg-[#F3F4F6]">
       <div className='absolute h-[176px] w-[176px] bg-[#FF8E27] z-10 top-[8%] left-[10%] rounded-full'></div>
       <div className='absolute h-[128px] w-[128px] bg-[#6E72C9] z-10 top-[80%] left-[80%] rounded-full'></div>
@@ -59,11 +60,10 @@ function App() {
       <div className="h-[540px] w-[540px] absolute border border-white rounded-full z-10 opacity-40"></div>
       <div className="h-[940px] w-[940px] absolute border border-white rounded-full z-10 opacity-40"></div>
 
-
+      {weatherLoading && <p>loading...</p>}
       <div className="bg-custom-white w-1/2 h-screen left-0 absolute flex justify-center items-center">
         <Search setSelectedCity={setSelectedCity}/>
         <LeftSide weather={weather}/>
-        {weatherLoading && <p></p>}
       </div>
       <div className="bg-custom-dark w-1/2 h-screen right-0 absolute flex justify-center items-center rounded-bl-[48px]">
       <RightSide weather={weather} />
