@@ -37,8 +37,8 @@ export const LeftSide = (props) => {
         <div className="flex justify-center items-center flex-col py-[56px] px-[40px]">
           <div className="flex h-[80px] w-[334px] justify-between">
             <div>
-              <p className="text-[#9ca3af]">{weather?.date}</p> 
-              <p className="text-[48px] bg-linear-to-r/srgb from-indigo-500 to-teal-400 font-extrabold">{weather?.cityName}</p> 
+              <p className="`text-[#9ca3af10]`">{weather.date}</p> 
+              <p className="text-[48px] text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-teal-400 text-[48px] font-extrabold">{weather.cityName}</p> 
             </div>
             <div className="flex justify-center items-center">
               <img
@@ -59,7 +59,7 @@ export const LeftSide = (props) => {
 
         <div className="h-[269px] w-[414px] px-[48px] flex justify-center items-center flex-col">
           <div className="h-[165px] w-[318px]">
-            <p className="font-extrabold text-[110px]">{weather?.max_c}º</p> 
+            <p className="font-extrabold text-[110px] text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-teal-400">{weather?.max_c}º</p> 
           </div>
           <div className="h-[35px] w-[318px] mb-[48px] flex justify-center items-center">
             <p className="text-[#FF8E27] text-[30px] outline-dashed rounded-[40px] px-[10px]">
