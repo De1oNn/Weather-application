@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import locationIcon from '../pic/location-icon.png';
+import searchIcon from '../pic/search.png';
 
 export const Search = ({ setSelectedCity }) => {
   const [countriesSearch, setCountriesSearch] = useState("");
@@ -41,7 +43,7 @@ export const Search = ({ setSelectedCity }) => {
       ).slice(0, 5)
     );
   };
-  
+
 
   const handleCityClick = (city) => {
     const cityName = city.split(",")[0];
@@ -50,9 +52,9 @@ export const Search = ({ setSelectedCity }) => {
   };
 
   return (
-    <div className='z-40 '>
+    <div className='z-40'>
       <img
-        src="./pic/search.png"
+        src={searchIcon}
         alt=""
         className="h-[48px] w-[48px] absolute top-[58px] left-[77%] z-30"
       />
@@ -72,7 +74,7 @@ export const Search = ({ setSelectedCity }) => {
               className="text-[24px] h-[56px] w-[530px] z-30 flex justify-start items-center top-[10%] bg-[#FFFFFF] backdrop-blur-md rounded-[15px]"
             >
               <img
-                src="./pic/location-icon.png"
+                src={locationIcon}
                 alt=""
                 className="z-40 h-[32px] w-[32px] ml-[25px] mr-[20px] opacity-40"
               />

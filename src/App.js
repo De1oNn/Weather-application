@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { Search } from './components/Search';
 import { RightSide } from './components/RightSide';
 import { LeftSide } from './components/LeftSide';
-// import { useState } from 'react';
+import logoLeft from './pic/logo-left.png';
+import logoRight from './pic/logo-right.png';
 
 function App() {
   const [selectedCity, setSelectedCity] = useState("Ulaanbaatar")
@@ -53,8 +54,8 @@ function App() {
       <div className="h-[540px] w-[540px] absolute border border-black rounded-full z-10 opacity-20"></div>
       <div className="h-[940px] w-[940px] absolute border border-black rounded-full z-10 opacity-20"></div>
       <div className="h-[140px] w-[140px] absolute border border-gray rounded-full z-10 flex justify-center items-center ">
-        <img src={"./pic/logo-right.png"} alt='' className="h-[86px] w-[43px] absolute z-index-20 left-20" />
-        <img src={"./pic/logo-left.png"} alt='' className="h-[86px] w-[43px] absolute z-index-20 left-4" />
+        <img src={logoRight} alt='' className="h-[86px] w-[43px] absolute z-index-20 left-20" />
+        <img src={logoLeft} alt='' className="h-[86px] w-[43px] absolute z-index-20 left-4" />
       </div>
       <div className="h-[340px] w-[340px] absolute border border-white rounded-full z-10 opacity-40"></div>
       <div className="h-[540px] w-[540px] absolute border border-white rounded-full z-10 opacity-40"></div>
@@ -66,7 +67,7 @@ function App() {
         <LeftSide weather={weather}/>
       </div>
       <div className="bg-custom-dark w-1/2 h-screen right-0 absolute flex justify-center items-center rounded-bl-[48px]">
-      <RightSide weather={weather} />
+        <RightSide weather={weather} />
       </div>
     </div>
   );

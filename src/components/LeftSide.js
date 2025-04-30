@@ -1,4 +1,11 @@
 // import React, { useEffect, useState } from 'react';
+import Cloud from '../pic/Clouds.png'
+import Rain from '../pic/Rain.png'
+import Icon from '../pic/icon.png'
+import Wind from '../pic/Wind.png'
+import Snow from '../pic/Snow.png'
+import locationIcon from '../pic/location-icon.png'
+import humidityIcon from '../pic/humidity1.png'
 
 export const LeftSide = (props) => {
   const { weather, weatherLoading } = props;
@@ -8,22 +15,22 @@ export const LeftSide = (props) => {
     const condition = weather?.condition?.toLowerCase() || 'clear'; 
 
     if (condition.includes("clouds")) {
-      return './pic/Clouds.png';
+      return Cloud;
     }
     else if (condition.includes('rain')) {
-      return './pic/rain.png';
+      return Rain;
     }
     else if (condition.includes('sunny')) {
-      return './pic/icon.png';
+      return Icon;
     }
     else if (condition.includes('windy')) {
-      return './pic/Wind.png';
+      return Wind;
     }
     else if (condition.includes('snow')) {
-      return './pic/Snow.png';
+      return Snow;
     }
     else {
-      return './pic/Snow.png'; 
+      return Snow; 
     }
   };
 
@@ -42,7 +49,7 @@ export const LeftSide = (props) => {
             </div>
             <div className="flex justify-center items-center">
               <img
-                src="./pic/location-icon.png"
+                src={locationIcon}
                 alt="Location"
                 className="h-[32px] w-[32px] top-[100px]"
               />
@@ -67,7 +74,7 @@ export const LeftSide = (props) => {
             </p>
           </div>
           <div className="flex border-solid border-2 border-sky-500 h-[70px] w-[100px] rounded-[20px] justify-center items-center">
-            <img src="./pic/humidity1.png" alt="" className="h-[40px] w-[40px]" />
+            <img src={humidityIcon} alt="" className="h-[40px] w-[40px]" />
             <p className="text-[#0000ff] text-[28px] ml-[10px]">{weather?.humidity}</p> 
           </div>
         </div>
