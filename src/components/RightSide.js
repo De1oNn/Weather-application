@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const RightSide = (props) => {
-  const {weather, selectedCity, weatherLoading} = props
+  const {weather, weatherLoading} = props
   
   const RightCondition = () => {
     const condition = weather?.condition?.toLowerCase() || 'clear'; 

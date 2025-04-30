@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 
 export const LeftSide = (props) => {
-  const { weather, selectedCity, weatherLoading } = props;
+  const { weather, weatherLoading } = props;
 
 
   const LeftCondition = () => {
