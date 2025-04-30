@@ -41,6 +41,7 @@ export const Search = ({ setSelectedCity }) => {
       ).slice(0, 5)
     );
   };
+  
 
   const handleCityClick = (city) => {
     const cityName = city.split(",")[0];
