@@ -1,7 +1,7 @@
 import React from 'react'
 import Cloud1 from '../pic/Clouds1.png'
 import Rain1 from '../pic/Rain1.png'
-import Icon1 from '../pic/icon.png'
+import Icon1 from '../pic/moon.png'
 import Wind1 from '../pic/Wind1.png'
 import Snow1 from '../pic/Snow1.png'
 import locationIcon from '../pic/location-icon.png'
@@ -38,11 +38,11 @@ export const RightSide = (props) => {
   }
   return (
     <div className='z-30'>
-      <div className="h-[828px] w-[414px] bg-[#11182733] z-30 rounded-[48px] flex flex-col items-center backdrop-blur-md shadow-2xl">
+      <div className="h-[828px] w-[414px] bg-[#11182733] z-30 rounded-[48px] flex flex-col items-center backdrop-blur-md shadow-2xl border-2 border-sky-300">
           <div className='flex justify-center items-center flex-col py-[56px] px-[40px]'>
             <div className='flex h-[80px] w-[334px] justify-between'>
               <div>
-                <p className='text-[#9ca3af50]'>{weather.date}</p>
+                <p className='text-white'>{weather.date}</p>
                 <p className='text-[48px] text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-teal-400 text-[48px] font-extrabold'>{weather.cityName}</p>
               </div>
               <div className='flex justify-center items-center'>

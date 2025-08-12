@@ -53,17 +53,17 @@ export const Search = ({ setSelectedCity }) => {
 
   return (
     <div className='z-40'>
-      <img
-        src={searchIcon}
-        alt=""
-        className="h-[48px] w-[48px] absolute top-[58px] left-[77%] z-30"
-      />
       <input
         disabled={loading}
         value={countriesSearch}
         onChange={handleChange}
         className="h-[80px] w-[530px] bg-[#FFFFFF] absolute top-[40px] left-[76%] rounded-[48px] pt-[16px] pr-[24px] pb-[16px] pl-[80px] text-[32px] font-semibold z-20"
         placeholder="Search"
+      />
+      <img
+        src={searchIcon}
+        alt=""
+        className="h-[48px] w-[48px] absolute top-[58px] left-[77%] z-30"
       />
       <div className="absolute top-[12%] left-[75%] z-30 bg-[#FFFFFF] w-[530px] flex flex-col rounded-[28px] backdrop-blur-md">
         {countriesSearch.length > 0 &&
